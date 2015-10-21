@@ -1,0 +1,46 @@
+<div class="col-sm-6 col-md-7">
+	<div class="page-header">
+		<h3>Restaurants</h3>
+
+			<div class="container">
+
+				<div class="col-sm6 col-md-7">
+						
+
+						<% @restaurants.each do |rest| %>
+							<p><h4><%= link_to rest.name, rest %></h4></p>
+
+								<div class ="caption">
+									<p><strong>Address: </strong><%= rest.address %></p>
+									<p><strong>Hours: </strong><%= rest.hours %></p>
+									<p><strong>Yelp Rating: </strong><%= rest.yelp_rating %></p>
+									<p><strong>Burger Rating: </strong><%= rest.avg_burger_rating %></p>
+									<p><strong><%= link_to rest.yelp_link %></strong></p>
+										<br>
+								</div>		
+						<% end %>
+    					
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+	
+jQuery(function($) {
+	$.supersized({
+		slide_interval   : 4000,
+		transition       : 1,
+		transition_speed : 700,
+		slinde_links     : 'blank',
+		slides           : [
+			{image : '<%= image_url("white_wallpaper.jpg") %>'}
+
+		]
+	});
+});
+</script>
+
+

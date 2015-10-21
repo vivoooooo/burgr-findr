@@ -1,0 +1,52 @@
+<div class="row">
+<div class="col-md-3">
+	<h4><%= @restaurant.name %></h4>
+
+	<div class ="caption">
+			<p><strong>Address: </strong><%= @restaurant.address %></p>
+			<p><strong>Hours: </strong><%= @restaurant.hours %></p>
+			<p><strong>Yelp Rating: </strong><%= @restaurant.yelp_rating %></p>
+			<p><strong>Burger Rating: </strong><%= @restaurant.avg_burger_rating %></p>
+			<p><strong><%= link_to @restaurant.yelp_link %></strong></p>
+	</div>
+
+<div class="controls">
+		<%= button_to 'Edit', edit_restaurant_path(@restaurant), :class => "btn btn-primary dropdown-toggle", :method => :get %>
+		<%= button_to 'Delete', @restaurant, :method => 'delete', :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger dropdown-toggle" %>
+	</div>	
+	
+
+</div>
+
+<div class="col-md-9">
+<h3>Reviews by People</h3>
+<h5>All Reviews</h5>
+<%= render :partial => 'reviews/review' %>
+<ul>
+<% if @restaurant.reviews.any? %>
+	<% @restaurant.reviews.each do |rev| %> 
+		<li><%= link_to rev.burger_name, [@restaurant, rev] %></li>
+	<% end %>
+<% end %>
+<li><%= link_to "New Review", new_restaurant_review_path(@restaurant) %></li>
+</ul>
+
+</div>
+
+</div>
+	<script type="text/javascript">
+	
+jQuery(function($) {
+	$.supersized({
+		slide_interval   : 4000,
+		transition       : 1,
+		transition_speed : 700,
+		slinde_links     : 'blank',
+		slides           : [
+			{image : '<%= image_url("white_wallpaper.jpg") %>'}
+
+		]
+	});
+});
+</script> 
+

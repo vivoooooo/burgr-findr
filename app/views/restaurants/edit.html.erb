@@ -1,0 +1,21 @@
+<div class="col-md-4 col-md-offset-4">
+<h2>Restaurant Edit</h2>
+</div>
+
+<%= render :partial => 'form' %>
+
+<script type="text/javascript">
+  
+jQuery(function($) {
+  $.supersized({
+    slide_interval   : 4000,
+    transition       : 1,
+    transition_speed : 700,
+    slinde_links     : 'blank',
+    slides           : [
+      {image : '<%= image_url("white_wallpaper.jpg") %>'}
+
+    ]
+  });
+});
+</script> 

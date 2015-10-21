@@ -1,0 +1,46 @@
+<div class ="col-sm-6 col-md-4">
+<h4><%= @review.burger_name %></h4>
+<%= image_tag @review.image, :class => 'feature' %>
+
+ <div class="caption">
+ <p><strong>Burger Name: </strong><%= @review.burger_name %></p>
+ <p><strong>Review: </strong><%= @review.review %></p>
+ <p><strong>Price: </strong><%= @review.price %></p>
+
+  <p><div class="rating_<%= @review.id %>">
+ </div></p>
+ </div>
+
+ <%= link_to ("Back to " + @restaurant.name), @restaurant %>
+
+<div class="controls">
+		<%= button_to 'Edit', edit_restaurant_review_path(@restaurant, @review), :class => "btn btn-primary dropdown-toggle" %>
+		<%= button_to 'Delete', [@restaurant, @review], :method => 'delete', :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger dropdown-toggle" %>
+	</div>	
+	
+       <script>$(".rating_<%= @review.id %>").raty({
+        starOn: "<%= image_path('star-on.png') %>",
+        starOff: "<%= image_path('star-off.png') %>",
+        score: <%= @review.rating %>,
+        readOnly: true
+      });
+      </script>  
+
+</div> 
+
+
+<script type="text/javascript">
+  
+jQuery(function($) {
+  $.supersized({
+    slide_interval   : 4000,
+    transition       : 1,
+    transition_speed : 700,
+    slinde_links     : 'blank',
+    slides           : [
+      {image : '<%= image_url("white_wallpaper.jpg") %>'}
+
+    ]
+  });
+});
+</script> 
