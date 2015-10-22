@@ -6,8 +6,8 @@ class CreateRestaurants < ActiveRecord::Migration
     	t.text :hours
     	t.text :yelp_rating
     	t.text :avg_burger_rating
-    	t.integer :latitude
-    	t.integer :longitude
+    	t.text :latitude
+    	t.text :longitude
     	t.text :yelp_link
     	t.timestamps
     end

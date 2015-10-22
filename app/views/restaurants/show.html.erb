@@ -8,7 +8,12 @@
 			<p><strong>Yelp Rating: </strong><%= @restaurant.yelp_rating %></p>
 			<p><strong>Burger Rating: </strong><%= @restaurant.avg_burger_rating %></p>
 			<p><strong><%= link_to @restaurant.yelp_link %></strong></p>
-	</div>
+	
+
+<div id="map-canvas" style="width: 230px; height: 230px;"></div>
+
+
+</div>
 
 <div class="controls">
 		<%= button_to 'Edit', edit_restaurant_path(@restaurant), :class => "btn btn-primary dropdown-toggle", :method => :get %>
@@ -19,6 +24,7 @@
 </div>
 
 <div class="col-md-9">
+<p><h4><%= link_to "New Review", new_restaurant_review_path(@restaurant) %></h></p>
 <h3>Reviews by People</h3>
 <h5>All Reviews</h5>
 <%= render :partial => 'reviews/review' %>
@@ -26,27 +32,51 @@
 <% if @restaurant.reviews.any? %>
 	<% @restaurant.reviews.each do |rev| %> 
 		<li><%= link_to rev.burger_name, [@restaurant, rev] %></li>
+		  <p><div class="rating" data-rating="<%= rev.rating %>">
+		  </div></p>
+        
+
 	<% end %>
 <% end %>
-<li><%= link_to "New Review", new_restaurant_review_path(@restaurant) %></li>
+
 </ul>
 
 </div>
 
 </div>
-	<script type="text/javascript">
-	
-jQuery(function($) {
-	$.supersized({
-		slide_interval   : 4000,
-		transition       : 1,
-		transition_speed : 700,
-		slinde_links     : 'blank',
-		slides           : [
-			{image : '<%= image_url("white_wallpaper.jpg") %>'}
+	 
 
-		]
+<script>
+$(document).ready(function () {
+	$('.rating').each(function () {
+		var rating = $(this).data('rating');
+		$(this).raty({
+	        starOn: "<%= image_path('star-on.png') %>",
+        	starOff: "<%= image_path('star-off.png') %>",
+        	score: rating,
+        	readOnly: true
+      });
 	});
 });
-</script> 
 
+
+
+
+</script>  
+  
+<script type="text/javascript">
+      function initialize() {
+        var mycenter = { lat: <%= @restaurant.latitude %>, lng: <%= @restaurant.longitude %>}
+        var mapOptions = {
+          center: mycenter,
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+        var marker = new google.maps.Marker({
+          position: mycenter,
+          map: map
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+</script> 

@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Restaurant.destroy_all 
 
-res1 = Restaurant.create(:name => "Mary's", :address => "154 Castlereagh Street, CBD, Sydney", :hours => "10 AM to 10 PM", :yelp_rating => "3.2", :avg_burger_rating => "4", :yelp_link => "http://www.yelp.com.au/biz/marys-city-sydney-3")
-res2 = Restaurant.create(:name => "The Rook", :address => "Level 7, 56-58 York St Sydney New South Wales 2000", :hours => "10 AM to 10 PM", :yelp_rating => "4", :avg_burger_rating => "4", :yelp_link => "http://www.yelp.com.au/biz/the-rook-sydney")
+res1 = Restaurant.create(:name => "Mary's", :address => "154 Castlereagh Street, CBD, Sydney", :hours => "10 AM to 10 PM", :yelp_rating => "3.2", :avg_burger_rating => "4", :yelp_link => "http://www.yelp.com.au/biz/marys-city-sydney-3", :latitude => "-33.8960854", :longitude => "151.1797467" )
+res2 = Restaurant.create(:name => "The Rook", :address => "Level 7, 56-58 York St Sydney New South Wales 2000", :hours => "10 AM to 10 PM", :yelp_rating => "4", :avg_burger_rating => "4", :yelp_link => "http://www.yelp.com.au/biz/the-rook-sydney", :latitude => "-33.86982", :longitude => "151.206436")
 
 Review.destroy_all
 

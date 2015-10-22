@@ -8,8 +8,8 @@
 #  hours             :text
 #  yelp_rating       :text
 #  avg_burger_rating :text
-#  latitude          :integer
-#  longitude         :integer
+#  latitude          :text
+#  longitude         :text
 #  yelp_link         :text
 #  created_at        :datetime
 #  updated_at        :datetime

@@ -15,11 +15,16 @@
 									<p><strong>Hours: </strong><%= rest.hours %></p>
 									<p><strong>Yelp Rating: </strong><%= rest.yelp_rating %></p>
 									<p><strong>Burger Rating: </strong><%= rest.avg_burger_rating %></p>
-									<p><strong><%= link_to rest.yelp_link %></strong></p>
+									<p><strong><%= link_to "Yelp Link", rest.yelp_link %></strong></p>
 										<br>
+
+									
 								</div>		
 						<% end %>
-    					
+
+						<%= link_to "Search!", restaurants_search_path %>
+
+
                 </div>
             </div>
         </div>
@@ -27,20 +32,8 @@
 </div>
 
 
-<script type="text/javascript">
-	
-jQuery(function($) {
-	$.supersized({
-		slide_interval   : 4000,
-		transition       : 1,
-		transition_speed : 700,
-		slinde_links     : 'blank',
-		slides           : [
-			{image : '<%= image_url("white_wallpaper.jpg") %>'}
 
-		]
-	});
-});
-</script>
+
+
 
 

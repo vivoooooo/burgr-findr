@@ -1,0 +1,16 @@
+<h2>Burgers Nearby</h2>
+
+
+
+<% @results.each do |res| %>
+	<p><%= link_to res[:name], res[:url] %> <%= image_tag res[:rating_img_url] %> <%= res[:address] %></p>
+
+<% end %>
+
+
+
+
+
+
+
+
