@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  # get 'sessions/create'
-
-  # get 'sessions/destroy'
 
    root :to => 'home#index'
 
@@ -16,15 +13,9 @@ Rails.application.routes.draw do
  end
 
 
-
-  # get '/restaurants/results' => 'restaurants#results'
-
-
-
  get 'auth/facebook/callback', to: "sessions#create"
 
 
-
- delete 'sign_out', to: "session#destroy", as: 'sign_out'
+ delete 'sign_out', to: "sessions#destroy", as: 'sign_out'
 
 end

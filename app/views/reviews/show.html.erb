@@ -1,5 +1,5 @@
 <div class ="col-sm-6 col-md-4">
-<h4><%= @review.burger_name %></h4>
+<h4>Restaurant: <%= @restaurant.name %></h4>
 <%= image_tag @review.image, height: '270', width: '370' %>
 
  <div class="caption">
@@ -7,7 +7,7 @@
  <p><strong>Review: </strong><%= @review.review %></p>
  <p><strong>Price: </strong><%= @review.price %></p>
 
-    <p><div class="rating" data-rating="<%= @review.rating %>">
+<p><div class="rating1" data-ratingg="<%= @review.rating %>">
       </div></p>
  </div>
 
@@ -18,13 +18,21 @@
 		<%= button_to 'Delete', [@restaurant, @review], :method => 'delete', :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger dropdown-toggle" %>
 	</div>	
 	
-       <script>$(".rating_<%= @review.id %>").raty({
-        starOn: "<%= image_path('star-on.png') %>",
-        starOff: "<%= image_path('star-off.png') %>",
-        score: <%= @review.rating %>,
-        readOnly: true
-      });
-      </script>  
 
 </div> 
+
+<script>
+$(document).ready(function () {
+  $('.rating1').each(function () {
+    var rating = $(this).data('ratingg');
+    $(this).raty({
+          starOn: "<%= image_path('star-on.png') %>",
+          starOff: "<%= image_path('star-off.png') %>",
+          score: rating,
+          readOnly: true
+      });
+  });
+})
+
+  </script>
 

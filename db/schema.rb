@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20151020095520) do
     t.datetime "updated_at",    null: false
     t.text     "image"
     t.integer  "restaurant_id"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

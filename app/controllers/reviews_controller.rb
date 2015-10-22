@@ -14,7 +14,12 @@ class ReviewsController < ApplicationController
   end
 
 	def create
-	  @review = Review.create review_params
+	  # @review = Review.create review_params
+    @review = @current_user.reviews.create review_params
+    # @review.user_id = @current_user.id
+    # @review.save 
+
+
      if params[:file]
       response = Cloudinary::Uploader.upload params[:file], :flags => :keep_iptc, :angle => :exif
       @review.image = response["url"]
@@ -25,8 +30,12 @@ class ReviewsController < ApplicationController
     @review.restaurant = @restaurant
     @review.save
 
+ 
+
     redirect_to ([@restaurant, @review])
+
 	end
+
 
 
 	def edit
@@ -39,15 +48,23 @@ class ReviewsController < ApplicationController
       if params[:file]
       response = Cloudinary::Uploader.upload params[:file], :flags => :keep_iptc, :angle => :exif
       review.image = response["url"]
-    elsif params[:review][:image]
+      elsif params[:review][:image]
         review.image = params[:review][:image]
-     end
+      end
       restaurant = review.restaurant
       review.update review_params
       # review.restaurant_ids = params[:restaurant][:restaurant_ids]
       review.save
-      redirect_to restaurant_review_path(restaurant, review)
+      # calculate_average
+         redirect_to restaurant_review_path(restaurant, review)
     end
+
+    # def calculate_average
+    #  a =  @restaurant.average_rating
+    #   @restaurant.update_attributes(avg_burger_rating: a)
+    #  end
+
+
 
     def destroy
       review = Review.find params[:id]
@@ -66,8 +83,14 @@ class ReviewsController < ApplicationController
     def review_params 
     params.require(:review).permit(:burger_name, :rating, :review, :price, :image)
     end 
+     
+  #     def average_rating
+  #  @restaurant.reviews.sum(:rating) / @restaurant.reviews.size
+  # rescue ZeroDivisionError
+  #   0
+  # end
 
-
+    
 end
 
 

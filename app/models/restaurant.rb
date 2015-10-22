@@ -16,6 +16,13 @@
 #
 
 class Restaurant < ActiveRecord::Base
-	has_many :reviews
-end
+	has_many :reviews, dependent: :destroy
+
+
+	# def average_rating
+	# 	self.reviews.sum(:rating) / reviews.size
+	# rescue ZeroDivisionError
+	# 	0
+	# end
+end	
 

@@ -13,8 +13,7 @@ class RestaurantsController < ApplicationController
 
 	def create
 	 @restaurant = Restaurant.create review_params
-	 # @restaurant.save
-	end
+  end
 
 
 
@@ -83,9 +82,6 @@ class RestaurantsController < ApplicationController
     	render :json => [] 
     end
  
-
-
-
   def results
         @restaurants = Restaurant.where("name ILIKE ? OR address ILIKE ?", "%#{ params[:query] }%", "%#{ params[:query] }%")
   end			

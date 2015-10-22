@@ -3,13 +3,10 @@
 
 
 <% @results.each do |res| %>
-	<p><%= link_to res[:name], res[:url] %> <%= image_tag res[:rating_img_url] %> <%= res[:address] %></p>
+	<p><%= link_to res[:name], restaurant_path(Restaurant.find_by(:name => res[:name]).id) %> <%= image_tag res[:rating_img_url] %> <%= res[:address] %>
+	<%= link_to "Yelp Link", res[:url] %> </p>
 
 <% end %>
-
-
-
-
 
 
 

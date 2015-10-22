@@ -13,6 +13,7 @@
  </div>
 
  <div class="form-group">
+
  <%= f.hidden_field :rating, required: true %>
  </div>
 
@@ -30,7 +31,7 @@
 
  <div class="form-group">
 	<%= f.label "Review:" %>
-	<%= f.text_area :review, :class => 'form-control', :placeholder => "Review here" %>
+	<%= f.text_area :review, :class => 'form-control', :placeholder => "Review here", required: true %>
    </div>
 
   <div class="score"></div>
