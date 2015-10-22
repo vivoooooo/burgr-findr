@@ -6,5 +6,6 @@ $(document).ready(function () {
         	starOff: "<%= image_path('star-off.png') %>",
         	score: rating,
         	readOnly: true
-      });
+      	});
 	})
+});

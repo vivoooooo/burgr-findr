@@ -1,4 +1,4 @@
-
+window.initMap = function () {};
 
 window.google = window.google || {};
 google.maps = google.maps || {};
