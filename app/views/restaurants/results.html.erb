@@ -1,0 +1,20 @@
+
+
+
+<div class="col-md-8 col-md-offset-1">
+<h1>Search Results</h1>
+<% unless @restaurants.empty? %>
+  <% @restaurants.each do |rest| %>
+  <p><h4><%= link_to rest.name, rest %></h4></p>
+		<div class ="caption">						
+		<p><strong>Address: </strong><%= rest.address %></p>
+			<p><strong>Yelp Rating: </strong><%= rest.yelp_rating %></p>
+			<p><strong>Burger Rating: </strong><%= rest.avg_burger_rating %></p>
+			<p><strong><%= link_to "Yelp Link", rest.yelp_link %></strong></p>
+				<br>
+           <% end %>
+            <% else  %>
+   <h3>No results found please try again</h3>
+    <% end %>
+
+

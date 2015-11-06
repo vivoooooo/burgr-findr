@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require google_maps
 //= require bootstrap-sprockets
 //= require jasny-bootstrap
 //= require supersized

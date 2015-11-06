@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
  get 'restaurants/search' => 'restaurants#search'
 
+ get '/restaurants/results' => 'restaurants#results'
+
  post 'restaurants/location' => 'restaurants#location', as: 'search_post'
 
  resources :users
