@@ -12,11 +12,11 @@ Rails.application.routes.draw do
 
 
 
- get '/maps' => 'maps#index'
+ # get '/maps' => 'maps#index'
 
- post '/maps/mapsearch' => 'maps#search'
+ # post '/maps/mapsearch' => 'maps#search'
 
- post '/maps/coord' => 'maps#coord'
+ # post '/maps/coord' => 'maps#coord'
 
 
 

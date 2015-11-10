@@ -64,21 +64,21 @@ class RestaurantsController < ApplicationController
      		
     
  	   					        
-                  @results.each do |r| 
-          			r1 = Restaurant.find_by(:name => r[:name])
-                    if r1.nil?
-	  				   r2 = Restaurant.new name: r[:name], address: r[:address], yelp_rating: r[:yelp_rating], yelp_link: r[:url], latitude: r[:latitude], longitude: r[:longitude]
-                        r2.save 
-	  				end  	
-	  		      end 
+            @results.each do |r| 
+      			 r1 = Restaurant.find_by(:name => r[:name])
+                if r1.nil?
+    		     r2 = Restaurant.new name: r[:name], address: r[:address], yelp_rating: r[:yelp_rating], yelp_link: r[:url], latitude: r[:latitude], longitude: r[:longitude]
+                    r2.save 
+    		    end  	
+          end 
  	   
    	
 
-   end
+    end
 
   def location
    		session[:lat] = params['userLat']
-       	session[:lon] = params['userLong']
+       session[:lon] = params['userLong']
 
     	render :json => [] 
   end
