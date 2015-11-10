@@ -5,17 +5,20 @@
 			<div class="container">
 
 				<div class="col-sm6 col-md-7">
-                    	<h3>Restaurants</h3>
+                    	<h3>Search burger restaurants on our website to review</h3>
 				       <%= form_tag restaurants_results_path, :method => 'get' do %>
   								<p>
     							<div class="col-xs-3">
 
     								<%= text_field_tag :query, params[:query], :class => "form-control" %>
       							 </div>
-   									 <%= submit_tag "Search Restaurants", :name => nil, :class => "btn btn-default" %>
+   									 <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
    										 <% end %> 
  									 </p>
 						
+
+
+		
 
 
 

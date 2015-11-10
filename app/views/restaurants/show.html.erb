@@ -1,3 +1,4 @@
+
 <div class="row">
 <div class="col-md-3">
 	<h4><%= @restaurant.name %></h4>
@@ -28,7 +29,7 @@
 <p><h4><%= link_to "New Review", new_restaurant_review_path(@restaurant) %></h></p>
 <h3>Reviews by People</h3>
 <h5>All Reviews</h5>
-<ul>
+<!-- <ul> -->
 <% if @restaurant.reviews.any? %>
 	<% @restaurant.reviews.each do |rev| %> 
 		<li><%= link_to rev.burger_name, [@restaurant, rev] %> by <%= rev.user.name%> <%= image_tag rev.user.avatar, height: '20', width: '20' %></li>
@@ -39,7 +40,9 @@
 	<% end %>
 <% end %>
 
-</ul>
+<!-- </ul> -->
+
+</div>
 
 </div>
 

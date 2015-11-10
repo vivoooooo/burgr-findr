@@ -1,13 +1,33 @@
-<h2>Burgers Nearby</h2>
 
 
 
-<% @results.each do |res| %>
-	<p><%= link_to res[:name], restaurant_path(Restaurant.find_by(:name => res[:name]).id) %> <%= image_tag res[:rating_img_url] %> <%= res[:address] %>
-	<%= link_to "Yelp Link", res[:url] %> </p>
 
-<% end %>
+<div class="col-md-8 col-md-offset-1">
+<h2>Burger places near your location</h2>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Yelp Rating</th>
+      <th>Address</th>
+      <th>Yelp Link</th>
+    </tr>
+  </thead>
+
+
+   <tbody>
+ <% @results.each do |res| %>
+   <tr> 
+	<td><%= link_to res[:name], restaurant_path(Restaurant.find_by(:name => res[:name]).id) %></td>
+	<td><%= image_tag res[:rating_img_url] %></td>
+	<td><%= res[:address] %></td>
+	<td><%= link_to "Link", res[:url] %> </td>
+
+ <% end %>
+  </tbody>
+  </table>
+  <br> 
 
 
 

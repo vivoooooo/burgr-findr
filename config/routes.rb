@@ -6,7 +6,19 @@ Rails.application.routes.draw do
 
  get '/restaurants/results' => 'restaurants#results'
 
+  get '/restaurants/all' => 'restaurants#all'
+
  post 'restaurants/location' => 'restaurants#location', as: 'search_post'
+
+
+
+ get '/maps' => 'maps#index'
+
+ post '/maps/mapsearch' => 'maps#search'
+
+ post '/maps/coord' => 'maps#coord'
+
+
 
  resources :users
 

@@ -3,16 +3,31 @@
 
 <div class="col-md-8 col-md-offset-1">
 <h1>Search Results</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Yelp Rating</th>
+      <th>Burger Rating</th>
+      <th>Yelp Link</th>
+    </tr>
+  </thead>
+
+   <tbody>
 <% unless @restaurants.empty? %>
   <% @restaurants.each do |rest| %>
-  <p><h4><%= link_to rest.name, rest %></h4></p>
-		<div class ="caption">						
-		<p><strong>Address: </strong><%= rest.address %></p>
-			<p><strong>Yelp Rating: </strong><%= rest.yelp_rating %></p>
-			<p><strong>Burger Rating: </strong><%= rest.avg_burger_rating %></p>
-			<p><strong><%= link_to "Yelp Link", rest.yelp_link %></strong></p>
-				<br>
+    <tr> 
+        <td><%= link_to rest.name, rest %></td>					
+		<td><%= rest.address %></td>
+		<td><%= rest.yelp_rating %></td>
+		<td><%= rest.avg_burger_rating %></td>
+		<td><%= link_to "Link", rest.yelp_link %></td>
+	 </tr>
            <% end %>
+     </tbody>
+    </table>
+   <br> 
             <% else  %>
    <h3>No results found please try again</h3>
     <% end %>

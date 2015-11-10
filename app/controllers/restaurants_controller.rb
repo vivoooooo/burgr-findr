@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
 	  @restaurants = Restaurant.all
 	end  
 
+
 	def show
 	  @restaurant = Restaurant.find params[:id]
     end
@@ -28,15 +29,15 @@ class RestaurantsController < ApplicationController
 	 redirect_to restaurant
     end
 
-    def search
+  def search
 
    	   @results = []
- 	   @lat = session[:lat]
- 	   @long = session[:lon]
+ 	     @lat = session[:lat]
+ 	     @long = session[:lon]
 
        @restlatlong = []
 
- 	   coordinates = { latitude: @lat, longitude: @long}
+ 	      coordinates = { latitude: @lat, longitude: @long}
  	      params = { term: 'burger',
            limit: 10
         }
@@ -57,7 +58,7 @@ class RestaurantsController < ApplicationController
 
 			 	   	@results << result
 
-        end
+    end
 
 
      		
@@ -75,17 +76,21 @@ class RestaurantsController < ApplicationController
 
    end
 
-   def location
+  def location
    		session[:lat] = params['userLat']
        	session[:lon] = params['userLong']
 
     	render :json => [] 
-    end
+  end
  
   def results
         @restaurants = Restaurant.where("name ILIKE ? OR address ILIKE ?", "%#{ params[:query] }%", "%#{ params[:query] }%")
-  end			
-    	
+  end		
+  
+
+  def all
+    @restaurants = Restaurant.all
+  end 
 
     def destroy
      restaurant = Restaurant.find params[:id]

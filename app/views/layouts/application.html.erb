@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>FindBurger</title>
-      <script src="https://maps.googleapis.com/maps/api/js"></script>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
- 
+      
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+   <script src="https://maps.googleapis.com/maps/api/js"></script>
 
   <%= csrf_meta_tags %>
 </head>
@@ -29,11 +29,13 @@
       <ul class="nav navbar-nav">
      
         <li><%= link_to 'Home', '/' %></li>
-        <li>   <% if @current_user.present? %>
-    <%= link_to "Restaurants", restaurants_path %></li>
-    <li> <%= link_to "Search", restaurants_search_path %></li>
+         <% if @current_user.present? %>
+         <li> <%= link_to "Find Burger", restaurants_search_path %></li>
+    <li>  <%= link_to "Reviews", restaurants_path %></li>
+     <li> <%= link_to "Yelp Map", "https://whispering-citadel-5844.herokuapp.com/" %></li>
   <li> <%= link_to "Logout #{ @current_user.name }", sign_out_path, :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?' } %></li>
   <% end %>
+
       
         <li class="dropdown">
      
@@ -49,7 +51,7 @@
                 <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Restaurants<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'All', restaurants_path %></li>
+            <li><%= link_to 'All', restaurants_all_path %></li>
             <li><%= link_to 'New  Restaurant', new_restaurant_path %></li>
             </ul>
         </li>
@@ -78,8 +80,9 @@
 </script>
 
 
-
+<div class="container">
 <%= yield %>
+</div>
 
 </body>
 </html>

@@ -37,6 +37,10 @@ gem "figaro"
 
 gem 'yelp', require: 'yelp'
 
+gem 'slim'
+
+gem 'font-awesome-sass'
+
 gem 'rails_12factor', group: :production
 
 gem 'geocoder'
