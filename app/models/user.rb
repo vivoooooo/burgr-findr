@@ -21,7 +21,6 @@
 
 class User < ActiveRecord::Base
 	has_many :reviews
-	# has_many :reviews, dependent: :destroy
 	has_many :restaurants, :through => :reviews 
 
 
@@ -31,13 +30,12 @@ class User < ActiveRecord::Base
 
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/	
 
-  def self.sign_in_from_facebook(auth)
+	def self.sign_in_from_facebook(auth)
 		find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_facebook(auth)
 	end
   
-  def self.create_user_from_facebook(auth)
+	def self.create_user_from_facebook(auth)
 		create(
-
 		avatar: process_uri(auth['info']['image'] + "?width=9999"),
 		email: auth['info']['email'],
 		provider: auth['provider'],
@@ -46,11 +44,10 @@ class User < ActiveRecord::Base
 		gender: auth['extra']['raw_info']['gender'],
 		date_of_birth: auth['extra']['raw_info']['birthday'],
 		location: auth['info']['location'],
-
 		)
 	end	
 
-   private
+	private
 
 	def self.process_uri(uri)
 		avatar_url = URI.parse(uri)

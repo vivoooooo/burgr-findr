@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
- before_action :fetch_current_user
+  before_action :fetch_current_user
 
   private
   def fetch_current_user
@@ -15,7 +15,4 @@ class ApplicationController < ActionController::Base
       session[:user_id] = nil unless @current_user.present?
     end
   end
-
-
-
 end

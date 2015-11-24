@@ -31,7 +31,7 @@
         <li><%= link_to 'Home', '/' %></li>
          <% if @current_user.present? %>
          <li> <%= link_to "Find Burger", restaurants_search_path %></li>
-    <li>  <%= link_to "Reviews", restaurants_path %></li>
+    <li>  <%= link_to "Reviews", restaurants_reviews_path %></li>
      <li> <%= link_to "Yelp Map", "https://whispering-citadel-5844.herokuapp.com/" %></li>
   <li> <%= link_to "Logout #{ @current_user.name }", sign_out_path, :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?' } %></li>
   <% end %>

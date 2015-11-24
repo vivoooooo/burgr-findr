@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require jasny-bootstrap
 //= require supersized
+//= require jasny-bootstrap
 //= require_tree .
 
 // function getLocation() {
